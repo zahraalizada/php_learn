@@ -5,8 +5,7 @@
 
 
         <?php
-        if(isset($_GET['edit'])){
-            $edit_cat_id = $_GET['edit'];
+        $edit_cat_id = $_GET['edit'];
 
             $query = "SELECT * FROM categories WHERE cat_id ={$edit_cat_id}";
             $select_categories_id = mysqli_query($connection,$query);
@@ -19,7 +18,7 @@
                 <input value="<?php if(isset($cat_title)){echo $cat_title;} ?>" class="form-control" type="text" name="cat_title">
 
 
-            <?php   } } ?>
+            <?php   } ?>
 
 
         <?php
