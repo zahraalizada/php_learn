@@ -14,7 +14,7 @@
 
             <?php
             // posts table-dan hersey secilir,
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts ";
             // db -ile elaqe qurulur table arasinda
             $select_all_posts_query = mysqli_query($connection, $query);
 
@@ -26,6 +26,14 @@
                 $post_date = $row['post_date'];
                 $post_image = $row['post_image'];
                 $post_content = substr(trim($row['post_content']),0,100) ;
+                $post_status = $row['post_status'];
+
+
+                if($post_status !== 'published'){
+                    echo "No POST SORRY";
+                } else{
+
+
 
                 ?>
                 <div>
@@ -54,7 +62,7 @@
                 </div>
 
 
-            <?php } ?>
+            <?php } }?>
 
 
         </div>
