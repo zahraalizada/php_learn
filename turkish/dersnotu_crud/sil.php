@@ -1,6 +1,7 @@
 <?php
 
 if($_GET){ // sil isleminde get methodu kullaniliyor
+
     $id = $_GET['id']; // get ile gelen id deyerini aliyoruz
     $db = new PDO("mysql:host=localhost;dbname=yapilacaklar_db",'root',''); //db-ye baglaniyoruz
     //yapilacaklar_tbl table-dan id= valuesina uygun silme icin sorgu gonderiyoruz

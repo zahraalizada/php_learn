@@ -34,7 +34,7 @@
                 $db = new PDO("mysql:host=localhost;dbname=yapilacaklar_db",'root',''); // db-yi bagliyoruz
                 // yapialcaklar tablosunda id-si getden gelen id-ye esit olan row-u fetc_assoc ediyoruz
                 $query = $db->query("SELECT * FROM yapilacaklar_tbl WHERE id='{$id}'")->fetch(PDO::FETCH_ASSOC);
-                isset($query["yapilacak_gorev"])?$gorev=$query["yapilacak_gorev"]:$gorev="Melumat tapilmadi";
+                isset($query["yapilacak_gorev"]) ? $gorev=$query["yapilacak_gorev"] : $gorev="Melumat tapilmadi";
             }
             ?>
 
