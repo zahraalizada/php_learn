@@ -12,6 +12,35 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 offset-md-4 ">
+            <div class="panel-group">
+                <div class="login card card-default">
+                    <div class="card-header">
+                        <h3>Ajax ile veri ekleme</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <input type="text" class="form-control" name="veri" /> <br>
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 <!-- Jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
