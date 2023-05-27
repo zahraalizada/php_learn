@@ -3,4 +3,4 @@
 host = localhost
 user = root
 password =
-dbname = suleymantalip_oop
+dbname = suleymantalip_blog

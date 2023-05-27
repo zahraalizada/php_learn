@@ -15,6 +15,7 @@ class Kontroller // kontrol folderinde olan dosylarin baglandigi yer
      * giris sayfa ise ust alt  ve giris sayfa gorunecek
      * tek yazilibsa sadece content gorunecek
     */
+
     public function goruntu ( $goruntu, $veri = [], $sayfa = "ana")
     {
         if ($sayfa == 'ana') {
@@ -31,6 +32,13 @@ class Kontroller // kontrol folderinde olan dosylarin baglandigi yer
         elseif ($sayfa == "yonetici") {
             require_once 'uygulama/goruntuler/sabitler/yonetici_ust.php';
             require_once 'uygulama/goruntuler/'. $goruntu.".php";
+            require_once 'uygulama/goruntuler/sabitler/yonetici_alt.php';
+        }
+        elseif ($sayfa == "yoneticimenu") {
+            require_once 'uygulama/goruntuler/sabitler/yonetici_ust.php';
+            require_once 'uygulama/goruntuler/sabitler/menu_ust.php';
+            require_once 'uygulama/goruntuler/'. $goruntu.".php";
+            require_once 'uygulama/goruntuler/sabitler/menu_alt.php';
             require_once 'uygulama/goruntuler/sabitler/yonetici_alt.php';
         }
         elseif ($sayfa == "tek") {

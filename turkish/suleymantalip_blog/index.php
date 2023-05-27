@@ -2,7 +2,7 @@
 
 setlocale(LC_ALL,'tr_TR,UTF-8');
 session_start();
-$isim = "http://localhost/suleymantalip_blog/";
+$isim = "http://localhost/php_learn/turkish/suleymantalip_blog";
 //$isim = "http://192.168.1.5";
 //
 define("ANA_DIZIN","$isim");

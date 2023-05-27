@@ -7,9 +7,10 @@
                 <div class="col-lg-5 mx-auto">
                     <div class="auth-form-light text-left p-5">
                         <div class="brand-logo">
-                            <img src="../uygulama/kaynak/yonetici/assets/images/logo.svg">
+                            <img src="uygulama/kaynak/yonetici/assets/images/logo.svg">
                         </div>
                         <h4>Merhaba, Hosgeldiniz</h4>
+                        <?php print_r($_SESSION) ?>
                         <h6 class="font-weight-light">Lutfen Giris Yapiniz.</h6>
                         <form id="giris_form" class="pt-3">
                             <div class="form-group ">

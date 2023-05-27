@@ -10,6 +10,7 @@
     anadizintam = "http://localhost/php_learn/turkish/suleymantalip_blog/";
     $(document).ready(function () {
 
+        //
         $('#giris_form').validate({ // initialize the plugin
             rules: {
                 kuladi: {
@@ -26,10 +27,53 @@
             submitHandler: function (form) { // for demo
                 kuladi = "1";
                 sifre = "2";
+                var formcu = ($("#giris_form").serialize());
+                $.post(anadizintam + "postlar/giris_yap",{form_veri: formcu}, function (data) {
+                   if(data.islem == "kul_yok"){
+                        alert("Kullanici olmadigi icin giris yapilamaz");
+                   }else if(data.islem == "sifre"){
+                       alert("Sifreniz dogru deyil");
+                   }else if(data.islem == "giris"){
+                       alert("Giris basarili. Yonlendiriliyorsunuz ... ");
+                       location.reload();
+                   }
+                }, "json");
+            }
+        });
 
-                $.post(anadizintam + "postlar/giris_yap",{phpkuladi:kuladi, phpsifre:sifre}, function (data) {
-                    alert(data);
-                });
+
+        $('#blog_yeni_yazi').validate({ // initialize the plugin
+            rules: {
+                baslik: {
+                    required: true
+                },
+                k_baslik: {
+                    required: true
+                },
+                kategori: {
+                    required: true
+                },
+                durum: {
+                    required: true
+                },
+                icerik: {
+                    required: true
+                }
+            },
+            submitHandler: function (form) { // for demo
+                var formcu = ($("#giris_form").serialize());
+
+                
+                $.post(anadizintam + "postlar/giris_yap",{form_veri: formcu}, function (data) {
+                    if(data.islem == "kul_yok"){
+                        alert("Kullanici olmadigi icin giris yapilamaz");
+                    }else if(data.islem == "sifre"){
+                        alert("Sifreniz dogru deyil");
+                    }else if(data.islem == "giris"){
+                        alert("Giris basarili. Yonlendiriliyorsunuz ... ");
+                        location.reload();
+                    }
+                }, "json");
             }
         });
 
