@@ -15,6 +15,7 @@
                 <div class="form-group">
                     <label>Baslik resim</label>
                     <input type="file" name="img[]" class="file-upload-default">
+                    <input type="file" multiple name="files[]" class="file-upload-default dosyaci">
                     <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Baslik Resim">
                         <span class="input-group-append">

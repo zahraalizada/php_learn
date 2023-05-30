@@ -41,41 +41,63 @@
             }
         });
 
-
-        $('#blog_yeni_yazi').validate({ // initialize the plugin
+        $('#blog_yeni_yazi').validate({// initialize the plugin
             rules: {
                 baslik: {
-                    required: true
+                    required: true,
                 },
                 k_baslik: {
-                    required: true
+                    required: true,
                 },
                 kategori: {
-                    required: true
+                    required: true,
                 },
                 durum: {
-                    required: true
+                    required: true,
                 },
                 icerik: {
-                    required: true
+                    required: true,
                 }
             },
             submitHandler: function (form) { // for demo
-                var formcu = ($("#giris_form").serialize());
 
-                
-                $.post(anadizintam + "postlar/giris_yap",{form_veri: formcu}, function (data) {
-                    if(data.islem == "kul_yok"){
-                        alert("Kullanici olmadigi icin giris yapilamaz");
-                    }else if(data.islem == "sifre"){
-                        alert("Sifreniz dogru deyil");
-                    }else if(data.islem == "giris"){
-                        alert("Giris basarili. Yonlendiriliyorsunuz ... ");
-                        location.reload();
+
+                var formData = new FormData();
+                $.each($(".dosyaci"), function (i) {
+                    formData.append('files[]', $(".dosyaci")[i].files[0]);
+                });
+                var formcu = ($("#blog_yeni_yazi").serialize());
+                formData.append('formcu', formcu);
+                $.ajax({
+                    url: anadizintam + "postlar/yeni_blog_ekle", // point to server-side PHP script
+                    dataType: 'text', // what to expect back from the PHP script
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.islem == "basarili")
+                        {
+                            location.href = anadizintam + "yonetici/yazilarim/" + data.id;
+                        }
+
+                    },
+                    error: function (data) {
+                        alert("Hata");
+                        console.log(data);
                     }
-                }, "json");
+                });
+
+
+
+
+
             }
         });
+
+
 
     });
 </script>
